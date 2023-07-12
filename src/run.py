@@ -27,7 +27,7 @@ while True:
     #input validation
     if operation in ('1', '2', '3', '4'):
         try: 
-            firstNum = float(input("First number: "))
+            num1 = float(input("First number: "))
             secondNum = float(input("Second number: "))
         except ValueError:
             print("Invalid. Reenter choice.")
@@ -35,13 +35,13 @@ while True:
 
     # check options
     if operation == '1':
-        calculation = add(firstNum,secondNum)
+        calculation = add(num1,secondNum)
     elif operation == '2':
-        calculation = subtract(firstNum,secondNum)
+        calculation = subtract(num1,secondNum)
     elif operation == '3':
-        calculation = multiply(firstNum,secondNum)
+        calculation = multiply(num1,secondNum)
     elif operation == '4':
-        calculation = multiply(firstNum,secondNum)
+        calculation = multiply(num1,secondNum)
        
     print(calculation)
     
@@ -50,4 +50,4 @@ while True:
     if nextCalc == yes:
         previousCalc = input("Would you like to use the previous answer? (yes/no)")
         if previousCalc == yes:
-            firstNum = calculation
+            num1 = calculation
