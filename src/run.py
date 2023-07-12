@@ -1,17 +1,17 @@
 #add 2 numbers
-def add(x,y):
+def add(x, y):
     return x + y
 
 #subtract 2 numbers
-def subtract(x,y):
+def subtract(x, y):
     return x - y
 
 #multiply 2 numbers
-def multiply(x,y):
+def multiply(x, y):
     return x * y
 
 #divide 2 numbers
-def divide(x,y):
+def divide(x, y):
     return x / y
 
 print("Which operation?")
