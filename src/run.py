@@ -14,6 +14,8 @@ def multiply(x, y):
 def divide(x, y):
     return x / y
 
+previousCalc = 'no'
+
 print("Which operation?")
 print("1. Add")
 print("2. Subtract")
@@ -27,27 +29,30 @@ while True:
     #input validation
     if operation in ('1', '2', '3', '4'):
         try: 
+          if previousCalc == 'yes':
+            firstNum = calc
+          else:
             firstNum = float(input("First number: "))
-            secondNum = float(input("Second number: "))
+          secondNum = float(input("Second number: "))
         except ValueError:
             print("Invalid. Reenter choice.")
             continue
 
     # check options
     if operation == '1':
-        calculation = add(firstNum,secondNum)
+        calc = add(firstNum, secondNum)
     elif operation == '2':
-        calculation = subtract(firstNum,secondNum)
+        calc = subtract(firstNum, secondNum)
     elif operation == '3':
-        calculation = multiply(firstNum,secondNum)
+        calc = multiply(firstNum, secondNum)
     elif operation == '4':
-        calculation = multiply(firstNum,secondNum)
+        calc = multiply(firstNum, secondNum)
        
-    print(calculation)
+    print(calc)
     
-    #another calculation?
-    nextCalc = input("Another calculation? (yes/no)")
-    if nextCalc == yes:
+    #another calc?
+    nextCalc = input("Another calc? (yes/no)")
+    if nextCalc == 'yes':
         previousCalc = input("Would you like to use the previous answer? (yes/no)")
-        if previousCalc == yes:
-            firstNum = calculation
+    else:
+      break
