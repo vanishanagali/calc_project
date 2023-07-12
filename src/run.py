@@ -33,6 +33,7 @@ while True:
             print("Invalid. Reenter choice.")
             continue
 
+    # check options
     if operation == '1':
         calculation = add(firstNum,secondNum)
     elif operation == '2':
