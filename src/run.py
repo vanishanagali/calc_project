@@ -30,9 +30,9 @@ while True:
     if operation in ('1', '2', '3', '4'):
         try: 
           if previousCalc == 'yes':
-            firstNum = calc
+            num1 = calc
           else:
-            firstNum = float(input("First number: "))
+            num1 = float(input("First number: "))
           secondNum = float(input("Second number: "))
         except ValueError:
             print("Invalid. Reenter choice.")
@@ -40,13 +40,13 @@ while True:
 
     # check options
     if operation == '1':
-        calc = add(firstNum, secondNum)
+        calc = add(num1, secondNum)
     elif operation == '2':
-        calc = subtract(firstNum, secondNum)
+        calc = subtract(num1, secondNum)
     elif operation == '3':
-        calc = multiply(firstNum, secondNum)
+        calc = multiply(num1, secondNum)
     elif operation == '4':
-        calc = multiply(firstNum, secondNum)
+        calc = multiply(num1, secondNum)
        
     print(calc)
     
