@@ -17,11 +17,12 @@ def multiply(x, y):
 def divide(x, y):
   return x / y
 
-
+#variable definitions
 prevCalc = 'no'
 num1 = 0
 num2 = 0
 
+#general start up
 print("Which operation?")
 print("1. Add")
 print("2. Subtract")
