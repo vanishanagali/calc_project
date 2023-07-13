@@ -38,7 +38,7 @@ while True:
     try:
       if prevCalc == "no":
         num1 = float(input("First number: "))
-      else:
+      elif prevCalc == "yes":
         num1 == answer
       num2 = float(input("Second number: "))
     except ValueError:
