@@ -38,7 +38,7 @@ while True:
       if prevCalc == "no":
         num1 = float(input("First number: "))
       else:
-        prevCalc == answer
+        num1 == answer
       num2 = float(input("Second number: "))
     except ValueError:
       print("Invalid. Reenter choice.")
