@@ -1,28 +1,28 @@
-#add 2 numbers
+# add 2 numbers
 def add(x, y):
     return x + y
 
 
-#subtract 2 numbers
+# subtract 2 numbers
 def subtract(x, y):
     return x - y
 
 
-#multiply 2 numbers
+# multiply 2 numbers
 def multiply(x, y):
     return x * y
 
 
-#divide 2 numbers
+# divide 2 numbers
 def divide(x, y):
     return x / y
 
-#variable definitions
+# variable definitions
 prevCalc = 'no'
 num1 = 0
 num2 = 0
 
-#general start up
+# general start up
 print("Which operation?")
 print("1. Add")
 print("2. Subtract")
@@ -30,10 +30,10 @@ print("3. Multiply")
 print("4. Divide")
 
 while True:
-    #input operation
+    # input operation
     choice = str(input("Choose which operation (1/2/3/4):"))
 
-    #input validation & input numbers
+    # input validation & input numbers
     if choice in ('1', '2', '3', '4'):
         try:
             if prevCalc == "no":
@@ -43,12 +43,12 @@ while True:
             num2 = float(input("Second number: "))
         except ValueError:
         print("Invalid. Reenter choice.")
-        #continue
+        # continue
     else:
         print("Invalid input. Restart.")
         break
    
-    #perform calculation
+    # perform calculation
     if choice == '1':
         answer = add(num1, num2)
     elif choice == '2':
@@ -60,7 +60,7 @@ while True:
 
     print("Your answer is ", answer)
 
-    #another calc?
+    # another calc?
     nextCalc = input("Another calc? (yes/no)")
     if nextCalc == 'yes':
         prevCalc = input("Would you like to use the previous answer? (yes/no)")
