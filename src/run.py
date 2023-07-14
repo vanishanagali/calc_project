@@ -92,14 +92,19 @@ while True:
         print('Invalid input. Restart.')
         break
 
-    try:
-        if prevCalc == 'no':
+    if prevCalc == 'no':
+        try:
             num1 = float(input('First number: '))
-        elif prevCalc == 'yes':
-            num1 = answer
+        except ValueError:
+            print('Invalid. Restart.')
+            break
+    elif prevCalc == 'yes':
+        num1 = answer
+    try:
         num2 = float(input('Second number: '))
     except ValueError:
-        print('Invalid. Reenter choice.')
+        print('Invalid. Restart.')
+        break
    
     # perform calculation
     if choice == '1':
@@ -109,6 +114,9 @@ while True:
     elif choice == '3':
         answer = multiply(num1, num2)
     elif choice == '4':
+        if num2 == 0:
+            print('Cannot divide by 0. Error.')
+            break
         answer = divide(num1, num2)
 
     print('Your answer is ', answer)
