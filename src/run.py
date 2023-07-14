@@ -76,15 +76,18 @@ num1 = 0
 num2 = 0
 
 # general start up
-print('Which operation?')
-print('1. Add')
-print('2. Subtract')
-print('3. Multiply')
-print('4. Divide')
+def options():
+    print('Which operation?')
+    print('1. Add')
+    print('2. Subtract')
+    print('3. Multiply')
+    print('4. Divide')
+    
 
 while True:
 
     # input operation
+    options()
     choice = input('Choose which operation (1/2/3/4):')
 
     # input validation & input numbers
@@ -92,13 +95,13 @@ while True:
         print('Invalid input. Restart.')
         break
 
-    if prevCalc == 'no':
+    if prevCalc == ('no', 'n'):
         try:
             num1 = float(input('First number: '))
         except ValueError:
             print('Invalid. Restart.')
             break
-    elif prevCalc == 'yes':
+    elif prevCalc == ('yes', 'y'):
         num1 = answer
     try:
         num2 = float(input('Second number: '))
@@ -123,7 +126,7 @@ while True:
 
     # another calc?
     nextCalc = input('Another calc? (yes/no)')
-    if nextCalc != 'yes':
+    if nextCalc == ('no', 'n'):
+        print(nextCalc)
         break
-    
     prevCalc = input('Would you like to use the previous answer? (yes/no)')
