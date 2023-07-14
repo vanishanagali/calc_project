@@ -85,21 +85,21 @@ print('4. Divide')
 while True:
 
     # input operation
-    choice = input("Choose which operation (1/2/3/4):")
+    choice = input('Choose which operation (1/2/3/4):')
 
     # input validation & input numbers
     if choice not in ('1', '2', '3', '4'):
-        print("Invalid input. Restart.")
+        print('Invalid input. Restart.')
         break
 
     try:
-        if prevCalc == "no":
-            num1 = float(input("First number: "))
-        elif prevCalc == "yes":
+        if prevCalc == 'no':
+            num1 = float(input('First number: '))
+        elif prevCalc == 'yes':
             num1 = answer
-        num2 = float(input("Second number: "))
+        num2 = float(input('Second number: '))
     except ValueError:
-        print("Invalid. Reenter choice.")
+        print('Invalid. Reenter choice.')
    
     # perform calculation
     if choice == '1':
@@ -111,11 +111,11 @@ while True:
     elif choice == '4':
         answer = divide(num1, num2)
 
-    print("Your answer is ", answer)
+    print('Your answer is ', answer)
 
     # another calc?
-    nextCalc = input("Another calc? (yes/no)")
+    nextCalc = input('Another calc? (yes/no)')
     if nextCalc != 'yes':
         break
     
-    prevCalc = input("Would you like to use the previous answer? (yes/no)")
+    prevCalc = input('Would you like to use the previous answer? (yes/no)')
