@@ -95,13 +95,13 @@ while True:
         print('Invalid input. Restart.')
         break
 
-    if prevCalc == ('no', 'n'):
+    if prevCalc == 'no' or prevCalc == 'n':
         try:
             num1 = float(input('First number: '))
         except ValueError:
             print('Invalid. Restart.')
             break
-    elif prevCalc == ('yes', 'y'):
+    elif prevCalc == 'yes' or prevCalc == 'y':
         num1 = answer
     try:
         num2 = float(input('Second number: '))
@@ -126,7 +126,6 @@ while True:
 
     # another calc?
     nextCalc = input('Another calc? (yes/no)')
-    if nextCalc == ('no', 'n'):
-        print(nextCalc)
+    if nextCalc == 'no' or nextCalc == 'n':
         break
     prevCalc = input('Would you like to use the previous answer? (yes/no)')
