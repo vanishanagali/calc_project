@@ -1,3 +1,5 @@
+import keyboard 
+
 def add(x: float, y: float) -> float:
     """
     Adds 2 numbers together
@@ -74,20 +76,51 @@ def divide(x: float, y: float) -> float:
 prevCalc = 'no'
 num1 = 0
 num2 = 0
+choice = 'none'
+addVar = '[add]'
+subVar = 'sub'
+mulVar = 'mul'
+divVar = 'div'
+addArr = ['\r[add] ', '\radd ']
+subArr = ['[sub] ', 'sub ']
+mulArr = ['[mul] ', 'mul ']
+divArr = ['[div]', 'div ']
+arrayValue = 1
 
 # general start up
-def options():
+def optionPicker(w, x, y, z):
     print('Which operation?')
-    print('1. Add')
-    print('2. Subtract')
-    print('3. Multiply')
-    print('4. Divide')
+    print(w, end='')
+    print(x, end='')
+    print(y, end='')
+    print(z, end='')
     
 
-while True:
+# while (arrayValue == 0):
+# optionPicker(addArr[0], subArr[1], mulArr[1], divArr[1])
+# arrayValue = 1
+# if arrayValue <= 4:
+#     if keyboard.is_pressed('right'):
+#         optionPicker(addArr[1], subArr[0], mulArr[1], divArr[1])
+#         arrayValue += 1
+#         if keyboard.is_pressed('right'):
+#             optionPicker(addArr[1], subArr[1], mulArr[0], divArr[1])
+#             arrayValue += 1
+#             if keyboard.is_pressed('right'):
+#                 optionPicker(addArr[1], subArr[1], mulArr[1], divArr[0])
+#                 arrayValue += 1
+# else: 
+#     arrayValue = 1
+    
+        # input("hi: ")
+# elif arrayValue > 2: 
+    # elif keyboard.is_pressed('right')
 
+
+
+while True:
     # input operation
-    options()
+   # options()
     choice = input('Choose which operation (1/2/3/4):')
 
     # input validation & input numbers
@@ -129,3 +162,10 @@ while True:
     if nextCalc == 'no' or nextCalc == 'n':
         break
     prevCalc = input('Would you like to use the previous answer? (yes/no)')
+
+'''
+while True:
+    if keyboard.is_pressed('right'):
+        print("Dear John")
+        break
+'''
