@@ -83,54 +83,52 @@ arrayValue = '0'
 prevCalc = 'no'
 num_1 = 0
 num_2 = 0
+currKeyR = False
+currKeyL = False
+currKeyE = False
 
-# while True:
-#     # print(f'\r{i}', end="")
-#     print(f'\r{options[0]}', end="")
-#     time.sleep(2)
-#     print(f'\r{options[1]}', end="")
-#     time.sleep(2)
-#     print(f'\r{options[2]}', end="")
-#     time.sleep(2)
-#     print(f'\r{options[3]}', end="")
-#     time.sleep(2)
-#     i += 1
+# general start up
 while True:
+    time.sleep(0.5)
     while arrayValue == '0':
+        print("Use your arrow keys and enter to select operation: ")
+
+        # interface to choose operation
         while i <= 3:
             print(f'\r{operations[i]}', end="")
-            key1 = keyboard.is_pressed('right')
-            key2 = keyboard.is_pressed('left')
-            key3 = keyboard.is_pressed('space')
-            if  key1 == True:
-                time.sleep(0.5)
+            prevKeyR = currKeyR
+            currKeyR = keyboard.is_pressed('right')
+            prevKeyL = currKeyL
+            currKeyL = keyboard.is_pressed('left')
+            prevKeyE = currKeyE
+            currKeyE = keyboard.is_pressed('enter')
+            # increment and decrement depending on key press 
+            if  prevKeyR == False and currKeyR == True:
                 print(f'\r{operations[i]}', end="")
-                key1 = False
                 i += 1
-            if key2 == True:
-                time.sleep(0.5)
+            if prevKeyL == False and currKeyL == True:
                 print(f'\r{operations[i]}', end="")
                 i -= 1
-                key2 = False
-            if key3 == True:
+            if prevKeyE == False and currKeyE == True:
                 time.sleep(0.5)
                 arrayValue = operations[i]
                 i = 5
-                key3 = False
-                    
-
+                
+        # set operation interface to intial
         while i == 4:
             print(f'\r{operations[0]}', end="")
             i = 0
         
+        # input validation & input numbers
         while i == 5:
+            key1 = False
+            key2 = False
+            key3 = False
             time.sleep(2)
             if prevCalc == 'no' or prevCalc == 'n':
                 try:
                     num_1 = float(input("\nFirst number: "))
                 except ValueError:
-                    if num_1 == ' ':
-                        num_1 = float(input('\nFirst number: '))
                     print('Invalid. Restart.')
                     break
             elif prevCalc == 'yes' or prevCalc == 'y':
@@ -141,7 +139,7 @@ while True:
                 print('Invalid. Restart.')
                 break
 
-#     # perform calculation
+            # perform calculation
             if arrayValue == operations[0]:
                 answer = add(num_1, num_2)
             elif arrayValue == operations[1]:
