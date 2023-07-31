@@ -72,95 +72,85 @@ def divide(x: float, y: float) -> float:
     'x' divided by 'y'. Mathematically equivalent to 'x / y'
     """
     return x / y
-
-def keyPress(x: str) -> bool:
-    key = keyboard.isPressed(x)
-    return key
-
 i = 0
 operations = ['[add] sub mul div', 'add [sub] mul div', 'add sub [mul] div', 'add sub mul [div]']
 arrayValue = '0'
 prevCalc = 'no'
-num_1 = 0
-num_2 = 0
-currKeyR = False
-currKeyL = False
-currKeyE = False
+# float(num_1) = 0.0
+# float(num_2) = 0.0
 
-# general start up
+# while True:
+#     # print(f'\r{i}', end="")
+#     print(f'\r{options[0]}', end="")
+#     time.sleep(2)
+#     print(f'\r{options[1]}', end="")
+#     time.sleep(2)
+#     print(f'\r{options[2]}', end="")
+#     time.sleep(2)
+#     print(f'\r{options[3]}', end="")
+#     time.sleep(2)
+#     i += 1
 while True:
-    time.sleep(0.5)
     while arrayValue == '0':
-        print("Use your arrow keys and enter to select operation: ")
-
-        # interface to choose operation
         while i <= 3:
             print(f'\r{operations[i]}', end="")
-            prevKeyR = currKeyR
-            currKeyR = keyboard.is_pressed('right')
-            prevKeyL = currKeyL
-            currKeyL = keyboard.is_pressed('left')
-            prevKeyE = currKeyE
-            currKeyE = keyboard.is_pressed('enter')
-            # increment and decrement depending on key press 
-            if  prevKeyR == False and currKeyR == True:
+            input = keyboard.read_key()
+            if input == 'right':
+                time.sleep(0.5)
                 print(f'\r{operations[i]}', end="")
                 i += 1
-            if prevKeyL == False and currKeyL == True:
+            if input == 'left':
+                time.sleep(0.5)
                 print(f'\r{operations[i]}', end="")
                 i -= 1
-            if prevKeyE == False and currKeyE == True:
+            if input == 'enter':
                 time.sleep(0.5)
                 arrayValue = operations[i]
                 i = 5
-                
-        # set operation interface to intial
+                    
+
         while i == 4:
             print(f'\r{operations[0]}', end="")
             i = 0
         
-        # input validation & input numbers
         while i == 5:
-            key1 = False
-            key2 = False
-            key3 = False
             time.sleep(2)
             if prevCalc == 'no' or prevCalc == 'n':
                 try:
-                    num_1 = float(input("\nFirst number: "))
+                    num_1 = input("First number: ")
                 except ValueError:
                     print('Invalid. Restart.')
                     break
             elif prevCalc == 'yes' or prevCalc == 'y':
                 num_1 = answer
             try:
-                num_2 = float(input('Second number: '))            
+                num_2 = input('Second number: ')            
             except ValueError:
                 print('Invalid. Restart.')
                 break
 
-            # perform calculation
+#     # perform calculation
             if arrayValue == operations[0]:
-                answer = add(num_1, num_2)
+                answer = add(float(num_1), float(num_2))
             elif arrayValue == operations[1]:
-                answer = subtract(num_1, num_2)
+                answer = subtract(float(num_1), float(num_2))
             elif arrayValue == operations[2]:
-                answer = multiply(num_1, num_2)
+                answer = multiply(float(num_1), float(num_2))
             elif arrayValue == operations[3]:
                 if num_2 == 0:
                     print('Cannot divide by 0. Error.')
                     break
-                answer = divide(num_1, num_2)
+                answer = divide(float(num_1), float(num_2))
 
             print('Your answer is ', answer)
 
-            # another calc?
-            nextCalc = input('Another calc? (yes/no)')
-            if nextCalc == 'no' or nextCalc == 'n':
-                break
-            prevCalc = input('Would you like to use the previous answer? (yes/no)')
+    # another calc?
+    nextCalc = input('Another calc? (yes/no)')
+    if nextCalc == 'no' or nextCalc == 'n':
+        break
+    prevCalc = input('Would you like to use the previous answer? (yes/no)')
 
-    # print(f'\r{i}', end="")
+    # # print(f'\r{i}', end="")
     # print(f'\r{options[i]}', end="")
     # time.sleep(2)
     # print(f'\r{options[i]}', end="")
